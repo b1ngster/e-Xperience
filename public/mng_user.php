@@ -26,7 +26,9 @@ if($action=="register") {
 
 	//get vars from POST
 	$username = $_GET['r_username'];
-	$password = $_GET['r_password'];
+	$password = password_hash($_GET['r_password'], PASSWORD_DEFAULT);
+	$email = $_GET['r_email'];
+	$dob = $_GET['r_email'];
 	$firstName = $_GET['r_firstname'];
 	$lastName = $_GET['r_lastname'];
 
@@ -53,19 +55,36 @@ if($action=="register") {
 
 	if($isValid) {
 
+		$sql = "SELECT * FROM `USER` WHERE  `u_username`='{$username}'";
 		//insert user with details
+		$result = mysqli_query($dbconnection, $sql);
+
+		$row = $result->fetch_assoc();
+		$hash = $row['u_password'];
+		
+//Prefixes for return messages in all-caps followed by a colon
+//EXAMPLE:
+//we use string operations in javascript to determine what actions
+//to perform based on the prefix
+		
+		if(!$row['u_username']){
+
+		//insert user with details
+
+		$query = "INSERT INTO `USER`(`u_username`,`u_password`,`u_emailaddress`,`u_firstname`,`u_lastname`) VALUES ('{$username}','{$password}','{$email}', '{$firstName}','{$lastName}')";
 		$result = mysqli_query($dbconnection,
-					"INSERT INTO `USER`
-					(`username`,`password`,`first_name`,`last_name`)
-					VALUES
-					('{$username}','{$password}','{$firstName}','{$lastName}')");
+					$query);
 		
 		//check if inserted or not
 		if($result) {
 			$response = "<p>Thank you for registering.  Please click the login button to login.</p>";
 		} else {
-			$response = "<p>There has been a problem with registering.  Please try again.</p>";
+			$response = $query; //"<p>There has been a problem with registering.  Please try again.</p>";
 		}
+	}else{
+		$response = "<p>Sorry that username is taken.</p>";
+
+	}
 
 	} else {
 		$response = $validMsg;
@@ -97,37 +116,31 @@ if($action=="login") {
 	}
 
 	if($isValid) {
-
+		$sql = "SELECT * FROM `USER` WHERE  `u_username`='{$username}'";
 		//insert user with details
-		$result = mysqli_query($dbconnection,
-								"SELECT *
-								FROM `USER`
-								WHERE  `username`='{$username}' 
-								AND `password`='{$password}'");
+		$result = mysqli_query($dbconnection, $sql);
+
+		$row = $result->fetch_assoc();
+		$hash = $row['u_password'];
 		
 //Prefixes for return messages in all-caps followed by a colon
 //EXAMPLE:
 //we use string operations in javascript to determine what actions
 //to perform based on the prefix
-
-		echo mysqli_error($dbconnection);
-
-		//check if inserted or not
-		if(mysqli_num_rows($result)>0) {
-
-			$userid = "";
-
-			while($row = mysqli_fetch_array($result)) {
-					$userid = $row['user_id'];
-			}
+		
+		if($row['u_username']){
+		if(password_verify($password, $hash)) {
+			
+			$userid = $row['user_id'];
 
 			$response = "LOGGEDIN:" . $userid;
 		} else {
-			$response = "NOTFOUND:" .  "<p>Username or password incorrect.</p>";
-		}
+			$response = "NOTFOUND:" .  "<p>Your password is incorrect.</p>";
+		}  
+	}
 
 	} else {
-		$response = "INVALID:" . $validMsg;
+		$response = "INVALID:" ."<p>Your username is incorrect.</p>" . $validMsg;
 	}
 
 }

@@ -2,8 +2,14 @@
 <html>
 	<head>
 		<!-- content security for android -->
-		<!-- look here: http://stackoverflow.com/questions/30212306/no-content-security-policy-meta-tag-found-error-in-my-phonegap-application -->
+		<!-- look here: http://stackoverflow.com/questions/30212306/no-content-security-policy-meta-tag-found-error-in-my-phonegap-application 
+		
+		
 		<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src * 'unsafe-inline';">
+Currently blocks subscriptions from loading on firefox ubuntu
+-->
+
+
 		<meta charset="utf-8">
 		<title>RSS Feed App - Subscriptions</title>
 		<link href="mainstyle.css" rel="stylesheet" type="text/css" />
@@ -34,7 +40,7 @@
 					type: 'GET',
 					dataType: "jsonp",
 					jsonp: "callback",
-					url: "http://ria.detritusdesign.co.uk/mng_subscription.php?action=" + action + "&user_id=" + userid + "&rss_id=" + rssid,
+					url: "/mng_subscription.php?action=" + action + "&user_id=" + userid + "&rss_id=" + rssid,
 					success: function(data) {
 
 						responseString="";
@@ -75,7 +81,7 @@
 			});
 
 			$(document).on("click", '.rsslink', function(event) { 
-    			location.href="comments.html?userid=" + userid + "&rssid=" + $(this).attr("rssid");
+    			location.href="/comments.html?userid=" + userid + "&rssid=" + $(this).attr("rssid");
     			return false;
     		});
 
@@ -95,7 +101,7 @@
 				type: 'GET',
 				dataType: "jsonp",
 				jsonp: "callback",
-				url: "http://ria.detritusdesign.co.uk/mng_subscription.php?action=select&user_id=" + userid,
+				url: "/mng_subscription.php?action=select&user_id=" + userid,
 				success: function(data) {
 
 					responseString="";

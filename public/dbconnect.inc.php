@@ -1,10 +1,15 @@
 <?php
+/*
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
+*/
 //set connectoion variables to match DB details
-$host = "ChrisRSS.db.12784180.hostedresource.com";
-$username = "ChrisRSS";
-$password = "Eskarina36#";
-$database = "ChrisRSS";
+$host = "localhost";
+$username = "sneakybandit";
+$password = "webtech2021";
+$database = "experience";
 
 //connect to database
 $dbconnection = mysqli_connect($host, $username, $password, $database);

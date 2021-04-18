@@ -39,7 +39,7 @@
 						type: 'GET',
 						dataType: "jsonp",
 						jsonp: "callback",
-						url: "http://ria.detritusdesign.co.uk/mng_user.php?action=login&l_username=" + username + "&l_password=" + password,
+						url: "/mng_user.php?action=login&l_username=" + username + "&l_password=" + password,
 						success: function(data) {
 
 
@@ -82,7 +82,7 @@
 							if (jqXHR.status == 500) {
 				                $("#messages").html('Internal error: ' + jqXHR.responseText);
 				            } else {
-				                $("#messages").html('Unexpected error.');
+				                $("#messages").html(' error.' + jqXHR.responseText);
 				            }
 						}
 					});
