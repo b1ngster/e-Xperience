@@ -133,7 +133,7 @@ if($action=="login") {
 			
 			$userid = $row['user_id'];
 
-			$response = "LOGGEDIN:" . $userid;
+			$response = "LOGGEDIN:" . $row['user_id'];
 		} else {
 			$response = "NOTFOUND:" .  "<p>Your password is incorrect.</p>";
 		}  
