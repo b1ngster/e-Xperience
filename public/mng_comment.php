@@ -32,9 +32,17 @@ if($action=="select") {
 		//loop through comment rows
 		while($row = mysqli_fetch_array($result)) {
 
+			$query = mysqli_query($dbconnection,
+							"SELECT *
+							FROM `USER`
+							WHERE `user_id`={$row['user_id']}");
+			$user = mysqli_fetch_array($query);
+		
+
 			//display comment content
 			$response.=  "<div class='comment' comuser='" . $row['user_id'] . "' comid='" . $row['comment_id'] . "'>";
-			$response.= $row['content'];
+			$response.= "<span class='username'>" .$user['u_username'] . ' </span>';
+			$response .= $row['content'];
 			$response.= "</div>";
 			//display date / time
 			$response.=  "<div class='comdate'>";
@@ -86,6 +94,7 @@ if($action=="insert") {
 	$rssId = $_GET['rss_id'];
 	$commentContent = urldecode($_GET['comment_content']);
 
+	if(!empty($commentContent)){
 	$result = mysqli_query($dbconnection,
 							"INSERT INTO `COMMENT`
 							(`user_id`,`rss_id`,`content`,`date_posted`)
@@ -97,6 +106,7 @@ if($action=="insert") {
 
 		$response.=  "FAIL:<p>Problem adding comment</p>";
 	}
+} 
 
 }
 
