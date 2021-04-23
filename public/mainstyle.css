@@ -142,19 +142,18 @@ body{
 }
 
 /* The Close Button */
-.close{
+.close i{
   color: #BA3441;
   float: right;
   font-size: 28px;
-  font-weight: bold;
 	line-height: 95px;
 }
 .modal-content form input{
 	color: #1B1B1B;
 }
 
-.close:hover,
-.close:focus {
+.close i:hover,
+.close i:focus {
   color: #54171D;
   text-decoration: none;
   cursor: pointer;
