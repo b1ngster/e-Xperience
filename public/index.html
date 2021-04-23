@@ -5,31 +5,54 @@
 		<!-- content security for android -->
 		<!-- look here: http://stackoverflow.com/questions/30212306/no-content-security-policy-meta-tag-found-error-in-my-phonegap-application -->
 		<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src * 'unsafe-inline';">
-		<title>RSS Feed App</title>
+		<title>e-Xperience | Home</title>
 		<link href="mainstyle.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="https://use.typekit.net/xoy1xmt.css">
+		<link rel="shortcut icon" href="images/E-Xperience.png" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/67ab806b72.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 		<script type="text/javascript" src="js/functions.js"></script>
-	</head>
+		
+</head>
 
 	<body>
 
-		<header>
-				RSS Feed App
-		</header>
+	<div class="topnav">
 
-		<main>
+		<!-- Centered link -->
+		<div class="topnav-centered">
+			<a><img id="site-logo" alt="Site-Logo" src="images/E-Xperience.png"></a>
+		</div>
 
-				<p class="big">Please <a href="login.html">Log In</a> Here</p>
+		<!-- Left-aligned links (default) -->
 
-				<p class="big">Not already a member?</p>
+			<a href="#home">Home</a>
+			<a href="#stats">Stats</a>
+			<a href="#replays">Replays</a>
+			<a href="#live">Live<span> <i class="live fa fa-circle"></i></span></a>
 
-				<p class="big"><a href="register.html">Sign Up Here!</a></p>
+		<!-- Right-aligned links -->
+		<div class="topnav-right">
+			<a><input type="text" placeholder="search for team, players etc..."><button>asdas</button></a>
+			<a href="#login">Login</a>
+			<a href="#register">Sign up</a>
+		</div>
 
-		</main>
-
-		<footer>
-				Welcome
-		</footer>
-
-	</body>
+	</div>
+		
+	<div class="main">
+		<div class="news-feed">
+			<div class="card-header">
+			<h1>Latest News</h1>
+			</div>
+		</div>
+	</div>
+		
+	<div class="footer">
+		
+	</div>
+		
+</body>
 </html>

@@ -1,29 +1,121 @@
 * {
 	padding:0;
 	margin:0;
-}
-
-body {
-	margin-top:40px;
-	margin-bottom:40px;
-}
-
-header {
-
-	width:100%;
-	padding:5px;
-	height:30px;
-	background-color: #000;
+	font-family: ethnocentric, sans-serif;
 	color: #fff;
+}
+body{
+/*	overflow: hidden;*/
+	background-image: url("images/Background-image.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
 
-	font-family: Calibri, Helvetica, Arial, sans-serif;
-	font-size:25px;
+/* Add a black background color to the top navigation */
+.topnav {
+  position: fixed;
+	top: 0;
+	width: 100%;
+  background-color: #000028;
+  overflow: visible;
+  height: 80px;
+	border-bottom: solid 2px #fff;
+}
+.footer{
+	width: 100%;
+	height: 80px;
+	background-color: #000028;
+	position: fixed;
+	bottom: 0px;
+	border-top: solid 2px #fff;
+}
+.topnav a input{
+	background-color: #000028;
+	border: solid 1px #fff;
+	border-radius: 200px;
+	padding: 5px 10px;
+	margin-right: 25px;
+	color: #fff;
+	width: 200px;
+	font-family: 'Roboto', sans-serif;
+}
+.news-feed{
+	background-color: rgba(0,0,0,0.50);
+	height: 3000PX;
+	width: 50%;
+	margin: auto;
+	border-radius: 15px;
+	border: solid 2px #fff;
+}
+.card-header{
+	background-color: #000028;
+	border-radius: 15px 15px 0px 0px;
+	padding: 10px;
+	text-align: center;
+	border-bottom: 2px solid #fff;
+}
+.main{
+	margin: 150px 0;
+}
+.live{
+	color: red;
+	font-size:8px;
+	vertical-align: super;
+}
+.topnav a input:focus{
+	outline: none;
+}
 
-	position:fixed;
-	top:0px;
-	left:0px;
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #fff;
+  text-align: center;
+  margin: 0px 25px;
+  text-decoration: none;
+  font-size: 17px;
+	line-height: 80px;
+}
 
-	text-align:center;
+/* Change the color of links on hover */
+.topnav a:hover {
+  color: #BA3441;
+}
+
+/* Centered section inside the top navigation */
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+	margin: 40px 0px 0px;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}
+#site-logo{
+	width: 150px;
+	height: 100%;
+	text-shadow: 100px 100px 0 #000;
+}
+
+/* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
 }
 
 footer {
@@ -71,10 +163,6 @@ main {
 	text-align:center;
 }
 
-.big {
-	font-size:40px;
-	margin:75px;
-}
 
 form input {
 
