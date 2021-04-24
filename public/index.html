@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<!-- content security for android -->
 		<!-- look here: http://stackoverflow.com/questions/30212306/no-content-security-policy-meta-tag-found-error-in-my-phonegap-application -->
+<<<<<<< Updated upstream
 <!--		<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src * 'unsafe-inline';">-->
 		<title>e-Xperience | Home</title>
 		<link href="mainstyle.css" rel="stylesheet" type="text/css" />
@@ -12,6 +13,40 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/67ab806b72.js" crossorigin="anonymous"></script>
+=======
+		
+		
+		
+		
+		<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src * 'unsafe-inline';">
+		<title>RSS Feed App</title>
+		<link href="mainstyle.css" rel="stylesheet" type="text/css" />
+
+		<script>
+			if (navigator.serviceWorker) {
+			navigator.serviceWorker.register('/serviceworker.js')
+				.then( function(X){
+
+					console.log('successs', x.scope );
+
+					addEventListener('fetch', function (event) {
+
+					}
+					)
+				}
+				)
+				
+				.catch(e)
+					console.log('error: ', e)
+			
+				}
+				
+
+		
+		</script>
+
+
+>>>>>>> Stashed changes
 		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 		<script type="text/javascript" src="js/functions.js"></script>
 		<script>
