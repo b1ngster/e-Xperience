@@ -151,12 +151,14 @@ body{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
+  left: 50%;
+  top: 50%;
+	transform: translate(-50%, -50%);
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	overflow: auto;
 }
 
 /* Modal Content/Box */
@@ -187,7 +189,7 @@ body{
 }
 
 /* The Close Button */
-.close i{
+.close-login i{
   color: #BA3441;
   float: right;
   font-size: 28px;
@@ -197,8 +199,20 @@ body{
 	color: #1B1B1B;
 }
 
-.close i:hover,
-.close i:focus {
+.close-login i:hover,
+.close-login i:focus {
+  color: #54171D;
+  text-decoration: none;
+  cursor: pointer;
+}
+.close-register i{
+  color: #BA3441;
+  float: right;
+  font-size: 28px;
+	line-height: 95px;
+}
+.close-register i:hover,
+.close-register i:focus {
   color: #54171D;
   text-decoration: none;
   cursor: pointer;
