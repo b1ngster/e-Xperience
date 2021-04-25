@@ -22,11 +22,11 @@
 
 				$("#register").click(function() {
 
-					username_r = $("[name='username']").val();
-					password_r = $("[name='password']").val();
-					email_r = $("[name='email']").val();
-					firstname_r = $("[name='firstname']").val();
-					lastname_r = $("[name='lastname']").val();
+					username_r = $("[name='username_r']").val();
+					password_r = $("[name='password_r']").val();
+					email_r = $("[name='email_r']").val();
+					firstname_r = $("[name='firstname_r']").val();
+					lastname_r = $("[name='lastname_r']").val();
 
 					if(username_r=="") {
 						$("#messages-register").html("Please enter a username.");
@@ -238,11 +238,11 @@
 				</div>
 				
 				<form>
-				<input type="text" name="username" placeholder="Username"><br />
-  				<input type="password" name="password" placeholder="Password"><br />
-				  <input type="text" name="email" placeholder="email"><br />
-  				<input type="text" name="firstname" placeholder="First Name"><br />
-  				<input type="text" name="lastname" placeholder="Last Name"><br />
+				<input type="text" name="username_r" placeholder="Username"><br />
+  				<input type="password" name="password_r" placeholder="Password"><br />
+				  <input type="text" name="email_r" placeholder="email"><br />
+  				<input type="text" name="firstname_r" placeholder="First Name"><br />
+  				<input type="text" name="lastname_r" placeholder="Last Name"><br />
   				<input type="button" value="Register" id="register">
 			</form>
 			<div id="messages-register">

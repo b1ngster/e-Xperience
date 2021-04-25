@@ -94,26 +94,25 @@
 				RSS Feed App - Sign Up
 		</header>
 
-		<main>
-
-			<h1>Please add your interests below</h1>
-
-			<form>
-				<input type="text" name="interest" placeholder="interest_title"><br />
-  				<input type="text" name="url" placeholder="url"><br />
-				  <input type="text" name="category" placeholder="email"><br />
-  				<input type="text" name="firstname" placeholder="First Name"><br />
-  				<input type="text" name="lastname" placeholder="Last Name"><br />
-  				<input type="button" value="Register" id="register">
-			</form>
-
-			<div id="messages">
-
+			<div class="main">
+				<form id="contact" action="" method="post">
+					<fieldset>
+						<input type="file" tabindex="1" required autofocus>
+					</fieldset>
+					<fieldset>
+						<input placeholder="Your Email" type="email" tabindex="2" required>
+					</fieldset>
+					<fieldset>
+						<input placeholder="Subject" type="text" tabindex="3" required>
+					</fieldset>
+					<fieldset>
+						<textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+					</fieldset>
+					<fieldset>
+						<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>	
+					</fieldset>
+				</form>
 			</div>
-
-			<p class="big"><a href="login.html">Log In</a></p>
-
-		</main>
 
 		<footer>
 				<a href="index.html">Home</a>
