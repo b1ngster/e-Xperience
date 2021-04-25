@@ -62,7 +62,8 @@ body{
 	cursor: pointer;
 }
 .footer-logo{
-	width: 30px;
+	width: 100px;
+	float: right;
 	position: absolute;
 }
 .footer-right{
