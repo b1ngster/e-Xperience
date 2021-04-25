@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- content security for android -->
+		<!-- look here: http://stackoverflow.com/questions/30212306/no-content-security-policy-meta-tag-found-error-in-my-phonegap-application -->
+<<<<<<< Updated upstream
+<!--		<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src * 'unsafe-inline';">-->
+		<title>e-Xperience | Home</title>
+		<link href="mainstyle.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="https://use.typekit.net/xoy1xmt.css">
+		<link rel="shortcut icon" href="images/E-Xperience.png" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/67ab806b72.js" crossorigin="anonymous"></script>
+=======
+		
+		
+		
+		
+		<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src * 'unsafe-inline';">
+		<title>RSS Feed App</title>
+		<link href="mainstyle.css" rel="stylesheet" type="text/css" />
+
+		<script>
+			if (navigator.serviceWorker) {
+			navigator.serviceWorker.register('/serviceworker.js')
+				.then( function(X){
+
+					console.log('successs', x.scope );
+
+					addEventListener('fetch', function (event) {
+
+					}
+					)
+				}
+				)
+				
+				.catch(e)
+					console.log('error: ', e)
+			
+				}
+				
+
+		
+		</script>
+
+
+>>>>>>> Stashed changes
+		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+		<script type="text/javascript" src="js/functions.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				 $.support.cors = true;
+
+				$("#login").click(function() {
+
+					username = $("[name='username']").val();
+					password = $("[name='password']").val();
+
+					if(username=="") {
+						$("#messages").html("Please enter a username.");
+						return false;
+					}
+
+					if(password=="") {
+						$("#messages").html("Please enter a password.");
+						return false;
+					}
+
+					$.ajax({
+						beforeSend: function() {
+							$("#loading").show();
+						},
+						complete: function() {
+							$("#loading").hide();
+						},
+						type: 'GET',
+						dataType: "jsonp",
+						jsonp: "callback",
+						url: "/mng_user.php?action=login&l_username=" + username + "&l_password=" + password,
+						success: function(data) {
+
+
+							responseString="";
+
+							$.each(data, function (index, item) {
+								console.log(item);
+							    // Use item in here
+							    responseString = item;
+							});
+
+							if(responseString.indexOf("LOGGEDIN")>-1) {
+
+								//get rest of data after prefix (LOGGEDIN:)
+								//the number is the character position to start from, we cut off the prefix
+								userid = responseString.substring(9);
+
+								location.href="subscriptions.html?userid=" + userid;
+
+							}
+							if(responseString.indexOf("NOTFOUND")>-1) {
+
+								//get rest of data after prefix (NOTFOUND:)
+								//the number is the character position to start from, we cut off the prefix
+								message = responseString.substring(9);
+
+								$("#messages").html(message);
+
+							}
+							if(responseString.indexOf("INVALID")>-1) {
+
+								//get rest of data after prefix (INVALID:)
+								//the number is the character position to start from, we cut off the prefix
+								message = responseString.substring(8);
+
+								$("#messages").html(message);
+
+							}
+						},
+						error: function (jqXHR, textStatus, errorThrown) {
+							if (jqXHR.status == 500) {
+				                $("#messages").html('Internal error: ' + jqXHR.responseText);
+				            } else {
+				                $("#messages").html(' error.' + jqXHR.responseText);
+				            }
+						}
+					});
+
+
+
+				});
+
+			});
+		</script>
+		
+</head>
+
+	<body>
+
+	<div class="topnav">
+
+		<!-- Centered link -->
+		<div class="topnav-centered">
+			<a><img id="site-logo" alt="Site-Logo" src="images/E-Xperience.png"></a>
+		</div>
+
+		<!-- Left-aligned links (default) -->
+
+			<a href="#home">Home</a>
+			<a href="#stats">Stats</a>
+			<a href="#replays">Replays</a>
+			<a href="#live">Live<span> <i class="live fa fa-circle"></i></span></a>
+
+		<!-- Right-aligned links -->
+		<div class="topnav-right">
+			<a><input type="text" placeholder="search for team, players etc..."><button>asdas</button></a>
+			<a id="myBtn">Login</a>
+			<a href="register.html">Sign up</a>
+		</div>
+
+	</div>
+		
+	<div class="main">
+		<div class="news-feed">
+			<div class="card-header">
+			<h1>Latest News</h1>
+			</div>
+		</div>
+		<div id="myModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-logo"><img alt="Site Logo" src="images/E-Xperience.png"></div>
+					<p class="modal-title">LOGIN TO E-XPERIENCE<span class="close"><i class="far fa-times-circle"></i></span></p>
+				</div>
+				
+				<form>
+				<input type="text" name="username" placeholder="Username"><br />
+  				<input type="password" name="password" placeholder="Password"><br />
+  				<input type="button" value="Log In" id="login">
+			</form>
+			</div>
+
+		</div>
+	</div>
+		
+	<div class="footer">
+		
+	</div>
+		
+</body>
+	<script>
+	// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+	</script>
+	
+</html>

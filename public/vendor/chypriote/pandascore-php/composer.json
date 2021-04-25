@@ -1,0 +1,29 @@
+{
+	"name": "chypriote/pandascore-php",
+	"type": "library",
+	"description": "PandaScore API wrapper for PHP7",
+	"keywords": ["pandascore", "esport","league of legends", "counter strike", "dota2", "overwatch", "api", "wrapper", "php7"],
+	"homepage": "https://github.com/chypriote/pandascore-php",
+	"license": "GPL-3.0-or-later",
+	"authors": [
+		{
+			"name": "Chypriote",
+			"email": "nicolas.temenides@gmail.com",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"guzzlehttp/guzzle": "^6.3",
+		"php": ">=7.2"
+    },
+	"require-dev": {
+		"friendsofphp/php-cs-fixer": "^2.14"
+	},
+	"autoload": {
+		"psr-4": {
+			"PandaScoreAPI\\": "src/PandaScoreAPI",
+			"PandaScoreAPI\\LeagueOfLegendsAPI\\": "src/LeagueOfLegendsAPI"
+		}
+	},
+	"minimum-stability": "stable"
+}

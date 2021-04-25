@@ -1,0 +1,21 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "^6.4",
+        "chypriote/pandascore-php": "^1.1",
+        "jonnyw/php-phantomjs": "5.*"
+    },
+"scripts": {
+        "post-install-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ],
+        "post-update-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ]
+    },
+ "config": {
+        "bin-dir": "bin"
+    }
+    
+
+
+}
