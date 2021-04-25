@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
 		<!-- content security for android -->
 		<!-- look here: http://stackoverflow.com/questions/30212306/no-content-security-policy-meta-tag-found-error-in-my-phonegap-application -->
-<<<<<<< Updated upstream
 <!--		<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src * 'unsafe-inline';">-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>e-Xperience | Home</title>
 		<link href="mainstyle.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="https://use.typekit.net/xoy1xmt.css">
@@ -13,40 +13,6 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/67ab806b72.js" crossorigin="anonymous"></script>
-=======
-		
-		
-		
-		
-		<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src * 'unsafe-inline';">
-		<title>RSS Feed App</title>
-		<link href="mainstyle.css" rel="stylesheet" type="text/css" />
-
-		<script>
-			if (navigator.serviceWorker) {
-			navigator.serviceWorker.register('/serviceworker.js')
-				.then( function(X){
-
-					console.log('successs', x.scope );
-
-					addEventListener('fetch', function (event) {
-
-					}
-					)
-				}
-				)
-				
-				.catch(e)
-					console.log('error: ', e)
-			
-				}
-				
-
-		
-		</script>
-
-
->>>>>>> Stashed changes
 		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 		<script type="text/javascript" src="js/functions.js"></script>
 		<script>
@@ -155,7 +121,7 @@
 
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
-			<a><input type="text" placeholder="search for team, players etc..."><button>asdas</button></a>
+			<a><input type="text" placeholder="search for team, players etc..."></a>
 			<a id="myBtn">Login</a>
 			<a href="register.html">Sign up</a>
 		</div>
@@ -187,7 +153,17 @@
 	</div>
 		
 	<div class="footer">
-		
+		<div class="footer-left">
+			<a class="contact-footer" href="contact.html">Contact us</a>
+			<i class="fab fa-youtube"></i>
+			<i class="fab fa-twitch"></i>
+			<i class="fab fa-facebook-f"></i>
+			<i class="fab fa-twitter"></i>
+		</div>
+		<p class="footer-center">Copyright&copy; e-Xperience 2021</p>
+		<div class="footer-right">
+			<div><p>Powered by:</p> <img class="footer-logo" alt="Sneaky Bandits Logo" src="images/Sneaky_Bandits_Logo.png"></div>
+		</div>
 	</div>
 		
 </body>
